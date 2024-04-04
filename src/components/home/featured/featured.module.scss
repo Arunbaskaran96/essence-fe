@@ -1,0 +1,45 @@
+
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.trending{
+    color: $primary_color;
+    letter-spacing: 2px;
+}
+
+.productContainer{
+    display: flex;
+    gap: 30px;
+    border: 1px solid $primary_color;
+
+}
+.container{
+    width: 90%;
+    margin-inline: auto;
+    padding: 50px 0px;
+}
+.img{
+    height: 250px;
+}
+
+.productsContainer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+.right{
+    padding-top: 20px;
+}
+.btn{
+    width: 80%;
+    border: none;
+    background-color: $primary_color;
+    height: 33px;
+    cursor: pointer;
+    transition: all 0.5s;
+    color: $bg_smoke;
+    font-size: 16px;
+    &:hover{
+        background-color: $primary_hover;
+    }
+}

@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.container{
+    height: 9vh;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+    background-color: $bg_smoke;
+    @include flexContainer;
+    justify-content: space-between;
+    padding: 0px 30px;
+    box-shadow: 2px 2px 2px 0 #ebebeb;
+    .brandName{
+        color: $primary_color;
+    }
+    .inputContainer{
+        border: 1px solid $primary_color;
+        border-radius: 5px;
+        padding: 0px 5px;
+        &:focus {
+            outline: 2px solid $primary_color;
+        }
+        .input{
+            height: 30px;
+            width: 300px;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            font-size: 14px
+        }
+    }
+    .actionContainer{
+        @include flexContainer;
+        gap: 20px;
+        .icon{
+            height: 35px;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+        }
+    }
+}
+

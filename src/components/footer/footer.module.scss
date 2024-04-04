@@ -1,0 +1,46 @@
+@import "../../styles/mixins.scss";
+.container{
+    height: 200px;
+    background-color: rgb(214, 212, 212);
+    @include flexContainer;
+    padding: 0px 30px;
+    justify-content: space-between;
+}
+.icon{
+    height: 30px;
+}
+
+.first{
+    @include flexContainer;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    p{
+        font-size: 17px;
+    }
+    div{
+        @include flexContainer;
+        gap: 10px;
+        cursor: pointer;
+    }
+}
+.second,.third{
+    h3{
+        font-size: 20px
+    }
+    @include flexContainer;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    ul{   
+        @include flexContainer;
+        flex-direction: column;
+        align-items: start;
+        gap: 4px;
+        li{
+            font-size: 16px;
+            @include flexContainer;
+            cursor: pointer;
+        }
+    }
+}

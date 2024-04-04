@@ -1,0 +1,75 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+.coverImg{
+    width: 100%;
+    height: 500px;
+}
+.coverImgContainer{
+    position: relative;
+}
+.leftSide{
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    width: 550px;
+    @include flexContainer;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 7px;
+    h1{
+        font-size: 45px;
+    }
+    p{
+        font-size: 21px;
+    }
+}
+
+.btn{
+    background-color:$primary_color ;
+    width: 130px;
+    height: 37px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: $bg_smoke;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $primary_hover;
+    }
+}
+
+.icon{
+    height: 75px;
+    aspect-ratio: 1/1;
+}
+
+.serviceCategory{
+    padding: 0px 150px;
+    @include flexContainer;
+    height: 300px;
+    justify-content: space-between;
+    .service{
+        text-align: center;
+        h4{
+            font-size: 20px;
+        }
+        p{
+            font-size: 17px;
+        }
+    }
+}
+
+.categoriesContainer{
+    h2{
+        text-align: center;
+    }
+}
+
+.featuredContainer{
+    h2{
+        text-align: center;
+    }
+}
