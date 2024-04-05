@@ -1,3 +1,4 @@
+@import "../../styles/variables.scss";
 .emptyCart{
     height: 59vh;
     div{
@@ -6,5 +7,143 @@
         h4{
             font-size: 20px;
         }
+    }
+}
+
+.productsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container{
+    width: 80%;
+    margin-inline: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.heading{
+    text-align: center;
+    h3{
+        margin-top: 30px;
+        font-size: 20px;
+    }
+}
+
+.image{
+    height: 200px;
+    width: 250px;
+    object-fit: contain;
+}
+.prodContainer{
+    display: flex;
+
+    border: 1px solid $primary_color;
+
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    .left{
+        width: 50%;
+        padding: 0px 50px;
+    }
+    .right{
+        width: 50%;
+    }
+    h5{
+        font-size: 20px;
+    }
+}
+
+.quantity{
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+    &:disabled{
+        cursor: not-allowed;
+    }
+}
+.qtyContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    div{
+        border: 2px solid $primary_color;
+        height: 25px;
+        width: 30px;
+        text-align: center;
+    }
+}
+
+.prodRight{
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .removeBtn{
+        height: 33px;
+        border: none;
+        background-color: $primary_color;
+        color: $bg_smoke;
+        letter-spacing: 1px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.5s ;
+        &:hover{
+            background-color: $primary_hover;
+        }
+    }
+}
+
+.right{
+    .price{
+        width: 60%;
+        margin-inline: auto;
+        h3{
+            font-weight: 600;
+            font-size: 21px;
+            text-align: center;
+        }
+        .priceContainer{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            gap: 8px;
+        }
+    }
+}
+
+.totalContainer{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.checkoutBtn{
+    margin-top: 10px;
+    height: 33px;
+    width: 100%;
+    border: none;
+    background-color: $primary_color;
+    color: $bg_smoke;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s ;
+    &:hover{
+        background-color: $primary_hover;
     }
 }

@@ -42,3 +42,31 @@
     }
 }
 
+
+.hearticon{
+    position: relative;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
+}
+.wishCount{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border: 1px solid black;
+    height: 20px;
+    aspect-ratio: 1/1;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+.carticon{
+    position: relative;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    text-align: center;
+}

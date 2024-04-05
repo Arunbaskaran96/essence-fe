@@ -99,12 +99,18 @@
 
 }
 .productContainer{
+    position: relative;
     border: 1px solid $primary_color;
+    cursor: pointer;
+    transition: all 0.5s;
     p{
         padding: 0px 5px;
     }
     h4{
         padding: 0px 5px;
+    }
+    &:hover{
+        transform: translateY(-5px);
     }
 }
 .image{
@@ -126,3 +132,38 @@
         background-color: $primary_hover;
     }
 }
+
+// .heartIcon{
+//     height: 30px;
+//     aspect-ratio: 1/1;
+//     position: absolute;
+//     top: 5px;
+//     right: 5px;
+
+// }
+
+
+.icon{
+    height: 30px;
+    aspect-ratio: 1/1;
+
+}
+
+.iconContainer{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        aspect-ratio: 1/1;
+        border: 1px solid $primary_color;
+        border-radius: 50%;
+        background-color:white;
+    }
+}
+
