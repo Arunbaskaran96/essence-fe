@@ -5,12 +5,19 @@ import heart from "../../assets/heart.svg";
 import heartfull from "../../assets/heartfull.svg";
 import { isWished } from "../../utils/isWished";
 import { addWishList } from "../../redux/slices/wishSlice";
+import { addToCart } from "../../redux/slices/cartSlice";
 function WhishList() {
   const { wishlist } = useSelector((state) => state.wish);
   const wishDispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cart);
+  const cartDispatch = useDispatch();
 
   const wishListHandler = (prod) => {
     wishDispatch(addWishList(prod));
+  };
+
+  const addtocarthandler = (prod) => {
+    cartDispatch(addToCart({ ...prod, quantity: 1 }));
   };
 
   if (wishlist.length == 0) {
@@ -46,7 +53,15 @@ function WhishList() {
                 <div className={classes.bottom}>
                   <p>{prod.title}</p>
                   <h5>₹ {prod.price}</h5>
-                  <button>Add To Cart</button>
+                  {isWished(prod, cart) ? (
+                    <Link to="/cart">
+                      <button>Go To Cart</button>
+                    </Link>
+                  ) : (
+                    <button onClick={() => addtocarthandler(prod)}>
+                      Add To Cart
+                    </button>
+                  )}
                 </div>
                 <div
                   onClick={() => wishListHandler(prod)}

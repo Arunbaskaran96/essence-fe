@@ -1,0 +1,47 @@
+@import "../../styles/variables.scss";
+.input{
+    height: 35px;
+    background-color: rgb(211, 209, 209);
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.inputContainer{
+    border: 1px solid $primary_color;
+    padding: 5px 10px;
+    width: 60%;
+    label{
+        font-size: 15px;
+        opacity: 0.9;
+    }
+}
+
+.contaimer{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.addBtn{
+    width: 60%;
+    height: 35px;
+    border: none;
+    background-color: $primary_color;
+    color: $bg_smoke;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover{
+        background-color: $primary_hover;
+    }
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.error{
+    color: red;
+    font-size: 13px;
+}

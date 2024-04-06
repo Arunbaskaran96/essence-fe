@@ -1,8 +1,31 @@
 import classes from "./cart.module.scss";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import {
+  decreaseQuantity,
+  increaseQuantity,
+  removeCart,
+} from "../../redux/slices/cartSlice";
+import { calGrandTotal } from "../../utils/calculateGrandTotal";
+import { SHIPPING_CHARGES, TAX_PRICE } from "../../config";
+
 function Cart() {
-  const { cart } = useSelector((state) => state.cart);
+  const { cart, total } = useSelector((state) => state.cart);
+  const cartDispatch = useDispatch();
+
+  const calgrandtotal = calGrandTotal(total);
+
+  const removeCartHandler = (prod) => {
+    cartDispatch(removeCart(prod));
+  };
+
+  const increaseHandler = (prod) => {
+    cartDispatch(increaseQuantity(prod));
+  };
+  const decreaseHandler = (prod) => {
+    cartDispatch(decreaseQuantity(prod));
+  };
 
   if (cart.length == 0) {
     return (
@@ -42,14 +65,23 @@ function Cart() {
                         <button
                           disabled={prod.quantity === 1}
                           className={classes.quantity}
+                          onClick={() => decreaseHandler(prod)}
                         >
                           -
                         </button>
-                        <div>1</div>
-                        <button className={classes.quantity}>+</button>
+                        <div>{prod.quantity}</div>
+                        <button
+                          onClick={() => increaseHandler(prod)}
+                          className={classes.quantity}
+                        >
+                          +
+                        </button>
                       </div>
                       <h5>₹ {prod.price}</h5>
-                      <button className={classes.removeBtn}>
+                      <button
+                        onClick={() => removeCartHandler(prod)}
+                        className={classes.removeBtn}
+                      >
                         Remove From Cart
                       </button>
                     </div>
@@ -64,23 +96,30 @@ function Cart() {
             <hr />
             <div className={classes.priceContainer}>
               <div>
-                <p>Price - (1-item)</p>
-                <p>Shipping Charges</p>
+                <p>
+                  Price{" "}
+                  {cart.length > 1
+                    ? `${cart.length}-items`
+                    : `${cart.length}-item`}
+                </p>
                 <p>Tax</p>
+                {total < 1000 && <p>Shipping Charges</p>}
               </div>
               <div>
-                <p>₹ 300</p>
-                <p>₹ 300</p>
-                <p>₹ 300</p>
+                <p>₹ {total}</p>
+                <p>{TAX_PRICE} %</p>
+                {total < 1000 && <p>₹ {SHIPPING_CHARGES}</p>}
               </div>
             </div>
             <hr />
             <div className={classes.totalContainer}>
               <h4>Total Amount</h4>
-              <h4>₹ 1200</h4>
+              <h4>₹ {calgrandtotal}</h4>
             </div>
             <hr />
-            <button className={classes.checkoutBtn}>Checkout</button>
+            <Link to="/checkout">
+              <button className={classes.checkoutBtn}>Checkout</button>
+            </Link>
           </div>
         </div>
       </div>

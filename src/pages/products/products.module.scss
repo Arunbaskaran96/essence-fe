@@ -101,7 +101,6 @@
 .productContainer{
     position: relative;
     border: 1px solid $primary_color;
-    cursor: pointer;
     transition: all 0.5s;
     p{
         padding: 0px 5px;
@@ -164,6 +163,16 @@
         border: 1px solid $primary_color;
         border-radius: 50%;
         background-color:white;
+        cursor: pointer;
     }
 }
 
+.link{
+    color: black;
+}
+.loadingContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}

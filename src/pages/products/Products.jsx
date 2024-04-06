@@ -9,6 +9,7 @@ import heartfull from "../../assets/heartfull.svg";
 import { isWished } from "../../utils/isWished";
 import { addToCart } from "../../redux/slices/cartSlice";
 import { Link } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
 
 function Products() {
   const prodDispatch = useDispatch();
@@ -23,7 +24,11 @@ function Products() {
   }, [prodDispatch]);
 
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div className={classes.loadingContainer}>
+        <Loading />
+      </div>
+    );
   }
 
   const wishlistHandler = (prod) => {
@@ -44,16 +49,22 @@ function Products() {
           {result.products &&
             result.products.map((product) => {
               return (
-                <div className={classes.productContainer} key={product._id}>
-                  <div>
-                    <img
-                      className={classes.image}
-                      src={product.image}
-                      alt="product-image"
-                    />
-                    <br />
-                    <p>{product.title}</p>
-                  </div>
+                <div key={product._id} className={classes.productContainer}>
+                  <Link
+                    className={classes.link}
+                    key={product._id}
+                    to={`/productview/${product._id}`}
+                  >
+                    <div>
+                      <img
+                        className={classes.image}
+                        src={product.image}
+                        alt="product-image"
+                      />
+                      <br />
+                      <p>{product.title}</p>
+                    </div>
+                  </Link>
                   <h4>₹ {product.price}</h4>
                   {isWished(product, cart) ? (
                     <Link to="/cart">
@@ -82,6 +93,7 @@ function Products() {
                     </div>
                   </div>
                 </div>
+                // </Link>
               );
             })}
         </div>

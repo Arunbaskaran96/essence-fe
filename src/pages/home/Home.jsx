@@ -5,6 +5,7 @@ import card from "../../assets/credit.svg";
 import verify from "../../assets/verify.svg";
 import Categories from "../../components/home/categories/Categories";
 import Featured from "../../components/home/featured/Featured";
+
 function Home() {
   const services = [
     {

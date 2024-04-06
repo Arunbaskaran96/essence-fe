@@ -19,12 +19,13 @@
         border: 1px solid $primary_color;
         border-radius: 5px;
         padding: 0px 5px;
+        position: relative;
         &:focus {
             outline: 2px solid $primary_color;
         }
         .input{
-            height: 30px;
-            width: 300px;
+            height: 35px;
+            width: 350px;
             border: none;
             background-color: transparent;
             outline: none;
@@ -69,4 +70,24 @@
     // justify-content: center;
     // align-items: center;
     text-align: center;
+}
+
+.first{
+    @include flexContainer;
+    gap: 28px;
+    p{
+        font-size: 18px;
+    }
+}
+
+.suggestionContainer{
+    position: absolute;
+    top: 50px;
+    width: 360px;
+    min-height: 250px;
+    max-height: 350px;
+    background-color: white;
+    border: 1px solid $primary_color;
+    border-radius: 5px;
+    overflow-y: scroll;
 }

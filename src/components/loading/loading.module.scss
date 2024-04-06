@@ -1,0 +1,31 @@
+@import "../../styles/variables.scss";
+
+.container{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    .first,.second,.third{
+        height: 20px;
+        width: 20px;
+        background-color: $primary_hover;
+        border-radius: 50%;
+    }
+    .first{
+        animation: firstloader 2s infinite 300ms;
+    }
+    .second{
+        animation: firstloader 2s infinite 500ms;
+    }
+    .third{
+        animation: firstloader 2s infinite 700ms;
+    }
+}
+
+@keyframes firstloader {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

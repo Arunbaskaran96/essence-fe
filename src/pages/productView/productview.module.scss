@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+.image{
+    height: 300px;
+    aspect-ratio: 1/1;
+}
+.productContainer{
+    border: 1px solid $primary_color;
+    width: 55%;
+    display: flex;
+    gap: 20px;
+    .title{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 20px;
+    .price{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .brand{
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+.btn{
+    height: 33px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: $primary_color;
+    transition: all 0.5s;
+    color: $bg_smoke;
+    border: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    &:hover{
+        background-color: $primary_hover;
+    }
+}
+
+.icon{
+    height: 30px;
+    aspect-ratio: 1/1;
+}
+
+.iconContainer{
+    display: flex;
+    padding: 5px 5px;
+    div{
+        border: 1px solid $primary_color;
+        height: 30px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+    }
+}
+
+.loadingContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}

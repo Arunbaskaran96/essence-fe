@@ -6,6 +6,8 @@ import Register from "./pages/register/Register";
 import WhishList from "./pages/wishlist/WhishList";
 import Products from "./pages/products/Products";
 import Cart from "./pages/cart/Cart";
+import Checkout from "./pages/checkout/Checkout";
+import ProductView from "./pages/productView/ProductView";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="wishlist" element={<WhishList />} />
           <Route path="products" element={<Products />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="/productview/:id" element={<ProductView />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,198 @@
+@import "../../styles/variables.scss";
+.heading{
+    text-align: center;
+    h3{
+        font-weight: 600;
+        font-size: 22px;
+    }
+}
+.container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.checkoutContainer{
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    gap: 20px;
+    .left{
+        width: 50%;
+    }
+    .right{
+        width: 50%;
+    }
+}
+.left{
+    div{
+        h6{
+            font-size: 17px;
+            font-weight: 500;
+        }
+    }
+}
+
+.right{
+    margin-top: 18px;
+    .heading{
+        border: 1px solid $primary_color;
+        padding: 5px 0px;
+        border-radius: 5px;
+        margin-top: 10px;
+        h6{
+            font-size: 17px;
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
+
+.price{
+    border: 1px solid $primary_color;
+    padding: 5px 0px;
+    border-radius: 5px;
+    margin-top: 10px;
+    h6{
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.addressContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.address{
+    display: flex;
+    align-items: start;
+    gap: 25px;
+    border: 1px solid $primary_color;
+    border-radius: 5px;
+    padding: 5px;
+    input{
+        cursor: pointer;
+        margin-top: 10px;
+        &:checked{
+            accent-color: $primary_color !important;
+        }
+    }
+}
+
+.addressText{
+    h6{
+        font-weight: 600;
+        font-size: 17px;
+    }
+}
+
+.addnewaddress{
+    margin-top: 20px;
+    button{
+        height: 35px;
+        width: 150px;
+        border: none;
+        background-color: $primary_color;
+        border-radius: 5px;
+        font-size: 14px;
+        color: $bg_smoke;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover{
+            background-color: $primary_hover;
+        }
+    }
+}
+.summaryContainer{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid $primary_color;
+    border-radius: 5px;
+    padding: 5px;
+    h6{
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.summary{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .summaryLeft{
+        width: 70%;
+    }
+}
+
+.priceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+    h6{
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.selectedAddress{
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid $primary_color;
+    padding: 5px 10px;
+    h6{
+        font-size: 17px;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+
+.placeBtn{
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: $primary_color;
+    transition: all 0.5s;
+    cursor: pointer;
+    color: $bg_smoke;
+    font-size: 16px;
+    &:hover{
+        background-color: $primary_hover;
+    }
+    &:disabled{
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+.free{
+    color: green;
+}
+
+
+.backBtn{
+    button{
+        height: 33px;
+        width: 130px;
+        cursor: pointer;
+        background-color: $primary_color;
+        border: none;
+        color: $bg_smoke;
+        border-radius: 5px;
+        font-size: 15px;
+        letter-spacing: 1px;
+        transition: all 0.5s;
+        &:hover{
+            background-color: $primary_hover;
+        }
+    }
+}
