@@ -1,15 +1,20 @@
 import { useState } from "react";
 import classes from "./addaddress.module.scss";
 import { verifyAddress } from "../../utils/verifyNewAddress";
+import { URL } from "../../config";
+import { useDispatch, useSelector } from "react-redux";
+import { addAddress } from "../../redux/slices/userSlice";
 
-function AddAddress() {
+function AddAddress({ setAddNew }) {
+  const { user } = useSelector((state) => state.user);
+  const userDispatch = useDispatch();
   const [errors, setErrors] = useState({});
   const [address, setAddress] = useState({
-    name: "",
+    contactName: "",
     street: "",
     city: "",
     pincode: "",
-    mobile: "",
+    contactNo: "",
     state: "",
   });
 
@@ -17,10 +22,21 @@ function AddAddress() {
     setAddress({ ...address, [e.target.id]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (verifyAddress(address, setErrors)) {
-      console.log(address);
+      const response = await fetch(`${URL}/address/${user.user._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ address }),
+      });
+      const result = await response.json();
+      if (result.success === true) {
+        userDispatch(addAddress(address));
+        setAddNew(false);
+      }
     }
   };
   return (
@@ -30,10 +46,10 @@ function AddAddress() {
         <br />
         <input
           onChange={handleChange}
-          value={address.name}
+          value={address.contactName}
           type="text"
           className={classes.input}
-          id="name"
+          id="contactName"
         />
         {errors.name && <span className={classes.error}>{errors.name}</span>}
       </div>
@@ -82,10 +98,10 @@ function AddAddress() {
         <br />
         <input
           onChange={handleChange}
-          value={address.mobile}
-          type="number"
+          value={address.contactNo}
+          type="text"
           className={classes.input}
-          id="mobile"
+          id="contactNo"
         />
         {errors.mobile && (
           <span className={classes.error}>{errors.mobile}</span>
@@ -103,7 +119,7 @@ function AddAddress() {
         />
         {errors.state && <span className={classes.error}>{errors.state}</span>}
       </div>
-      <button className={classes.addBtn}>Add</button>
+      <input type="submit" value="Add" className={classes.addBtn} />
     </form>
   );
 }

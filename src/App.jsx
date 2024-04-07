@@ -8,6 +8,9 @@ import Products from "./pages/products/Products";
 import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/checkout/Checkout";
 import ProductView from "./pages/productView/ProductView";
+import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
+import PaymentSuccess from "./pages/paymet/PaymentSuccess";
+import PaymentFailure from "./pages/paymet/PaymentFailure";
 
 function App() {
   return (
@@ -20,8 +23,17 @@ function App() {
           <Route path="wishlist" element={<WhishList />} />
           <Route path="products" element={<Products />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="checkout" element={<Checkout />} />
           <Route path="/productview/:id" element={<ProductView />} />
+          <Route
+            path="checkout"
+            element={
+              <ProtectedRoute>
+                <Checkout />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/paymentsuccess/:id" element={<PaymentSuccess />} />
+          <Route path="/paymentfailure" element={<PaymentFailure />} />
         </Route>
       </Routes>
     </BrowserRouter>

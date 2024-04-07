@@ -1,6 +1,6 @@
 export const verifyAddress = (formData, setErrors) => {
   let errors = {};
-  if (!formData.name) {
+  if (!formData.contactName) {
     errors.name = "Name is required";
   }
   if (!formData.street) {
@@ -12,12 +12,12 @@ export const verifyAddress = (formData, setErrors) => {
   if (!formData.pincode) {
     errors.pincode = "Pincode is required";
   }
-  if (!formData.mobile) {
+  if (!formData.contactNo) {
     errors.mobile = "Mobile is required";
   }
   if (!formData.state) {
     errors.state = "State is required";
   }
   setErrors(errors);
-  Object.keys(errors).length === 0;
+  return Object.keys(errors).length === 0;
 };

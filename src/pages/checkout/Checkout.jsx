@@ -7,28 +7,32 @@ import AddAddress from "../../components/addadress/AddAddress";
 function Checkout() {
   const [selectedAddress, setSelectedAddress] = useState("");
   const { cart, total } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
   const calculateGrandTotal = calGrandTotal(total);
   const [addnew, setAddNew] = useState(false);
 
-  const addrress = [
-    {
-      contactName: "Arun",
-      street: "68.A,North Car Street",
-      city: "Thiruppanandal",
-      pincode: 612504,
-      contactNo: 7539913570,
-      state: "Tamilnadu,India",
-    },
-    {
-      contactName: "Dhilla",
-      street: "100,Panchayat Street",
-      city: "Perungudi",
-      pincode: 600097,
-      contactNo: 7418541432,
-      state: "Tamilnadu,India",
-    },
-  ];
+  // const addrress = [
+  //   {
+  //     contactName: "Arun",
+  //     street: "68.A,North Car Street",
+  //     city: "Thiruppanandal",
+  //     pincode: 612504,
+  //     contactNo: 7539913570,
+  //     state: "Tamilnadu,India",
+  //   },
+  //   {
+  //     contactName: "Dhilla",
+  //     street: "100,Panchayat Street",
+  //     city: "Perungudi",
+  //     pincode: 600097,
+  //     contactNo: 7418541432,
+  //     state: "Tamilnadu,India",
+  //   },
+  // ];
 
+  const handlePayment = async () => {
+    window.location = `http://localhost:3000/pay?amount=${calculateGrandTotal}`;
+  };
   const addAdressHandler = () => {
     setSelectedAddress("");
     setAddNew(true);
@@ -46,34 +50,37 @@ function Checkout() {
               <div className={classes.backBtn}>
                 <button onClick={() => setAddNew(false)}>Back</button>
               </div>
-              <AddAddress />
+              <AddAddress setAddNew={setAddNew} />
             </div>
           ) : (
             <>
-              <div>
-                <h6>Select Address</h6>
-              </div>
+              {user && user.user.address > 0 && (
+                <div>
+                  <h6>Select Address</h6>
+                </div>
+              )}
               <div className={classes.addressContainer}>
-                {addrress.map((address, index) => {
-                  return (
-                    <div key={index} className={classes.address}>
-                      <input
-                        type="radio"
-                        name="address"
-                        onChange={() => setSelectedAddress(address)}
-                      />
-                      <div className={classes.addressText}>
-                        <h6>{address.contactName}</h6>
-                        <p>
-                          {address.street} - {address.pincode}
-                        </p>
-                        <p>{selectedAddress.city}</p>
-                        <p>{address.state}</p>
-                        <p>{address.contactNo}</p>
+                {user &&
+                  user.user.address.map((address, index) => {
+                    return (
+                      <div key={index} className={classes.address}>
+                        <input
+                          type="radio"
+                          name="address"
+                          onChange={() => setSelectedAddress(address)}
+                        />
+                        <div className={classes.addressText}>
+                          <h6>{address.contactName}</h6>
+                          <p>
+                            {address.street} - {address.pincode}
+                          </p>
+                          <p>{selectedAddress.city}</p>
+                          <p>{address.state}</p>
+                          <p>{address.contactNo}</p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
               </div>
               <div className={classes.addnewaddress}>
                 <button onClick={addAdressHandler}>➕ Add Address</button>
@@ -136,6 +143,7 @@ function Checkout() {
             <button
               disabled={selectedAddress == ""}
               className={classes.placeBtn}
+              onClick={handlePayment}
             >
               Place Order
             </button>

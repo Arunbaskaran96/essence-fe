@@ -1,0 +1,50 @@
+@import "../../styles/variables.scss";
+
+.container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    h3{
+        text-align: center;
+    }
+}
+
+.image{
+    height: 200px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.prodsContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 80%;
+    margin-inline: auto;
+    gap: 15px;
+}
+.prodContainer{
+    display: flex;
+    gap: 10px;
+    border: 1px solid $primary_color;
+}
+
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.order,.cont{
+    height: 33px;
+    width: 150px;
+    border: none;
+    background-color: $primary_color;
+    color: $bg_smoke;
+    letter-spacing: 1px;
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary_hover;
+    }
+}
