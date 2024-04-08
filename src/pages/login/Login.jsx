@@ -24,7 +24,7 @@ function Login() {
       userDispatch(login(formData)).then((data) => {
         if (data.payload.success == true) {
           setItem(data.payload.token);
-          if (location.state.from.pathname) {
+          if (location?.state?.from.pathname) {
             navigate(location.state.from.pathname);
           } else {
             navigate("/");
