@@ -9,8 +9,10 @@ const INITIAL_STATE = {
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
-    const response = await fetch(`${URL}/getProducts`);
+  async (filterData) => {
+    const response = await fetch(
+      `${URL}/getProducts?brand=${filterData.brand}&category=${filterData.category}&rating=${filterData.rating}&sort=${filterData.sort}`
+    );
     const result = await response.json();
     return result;
   }
