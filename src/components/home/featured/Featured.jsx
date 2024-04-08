@@ -50,7 +50,7 @@ function Featured() {
   };
 
   const addtocart = (prod) => {
-    cartDispatch(addToCart(prod));
+    cartDispatch(addToCart({ ...prod, quantity: 1 }));
   };
 
   return (
