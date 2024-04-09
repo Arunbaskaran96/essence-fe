@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+@im
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+.profileContainer{
+    border: 1px solid $primary_color;
+    width: 50%;
+    margin-inline: auto;
+}
+
+.actionContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $primary_color;
+    padding: 0px 10px;
+    p{
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 10px 0px;
+    }
+}
+
+.active{
+    color: $primary_color;
+    text-decoration: underline;
+}
+
+.name{
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+}

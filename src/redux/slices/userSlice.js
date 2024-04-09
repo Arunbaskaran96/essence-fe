@@ -25,6 +25,12 @@ const userSlice = createSlice({
     addAddress: (state, action) => {
       state.user.user.address = [...state.user.user.address, action.payload];
     },
+    logout: (state) => {
+      (state.loading = false),
+        (state.error = null),
+        (state.user = {}),
+        (state.isAuthenticated = false);
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -48,5 +54,5 @@ const userSlice = createSlice({
       });
   },
 });
-export const { addAddress } = userSlice.actions;
+export const { addAddress, logout } = userSlice.actions;
 export default userSlice.reducer;

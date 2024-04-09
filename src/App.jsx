@@ -11,6 +11,7 @@ import ProductView from "./pages/productView/ProductView";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 import PaymentSuccess from "./pages/paymet/PaymentSuccess";
 import PaymentFailure from "./pages/paymet/PaymentFailure";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -32,8 +33,30 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/paymentsuccess/:id" element={<PaymentSuccess />} />
-          <Route path="/paymentfailure" element={<PaymentFailure />} />
+          <Route
+            path="/paymentsuccess/:id"
+            element={
+              <ProtectedRoute>
+                <PaymentSuccess />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/paymentfailure"
+            element={
+              <ProtectedRoute>
+                <PaymentFailure />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

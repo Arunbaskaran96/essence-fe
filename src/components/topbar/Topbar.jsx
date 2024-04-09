@@ -106,7 +106,7 @@ function Topbar() {
             )}
           </div>
         </Link>
-        <Link to="/login">
+        <Link to="/profile">
           <img className={classes.icon} src={person} alt="icons" />
         </Link>
       </div>
